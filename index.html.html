@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SmartList</title>
+<meta name="theme-color" content="#1f8a5b">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="SmartList">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAADZklEQVR4nO3d0W3jRhRAUTtIH5u+Nm2kiU0bKSyl5CNAYMC5MtemOE+jc34NUSLnajiiCPn124/vL/B/fln9AphLHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgfp19UvYL2///ir/vTbn79f+UqmeX3an3260cR7z1nJM8bxU1m89WyJPFccn87iredJ5FniOCWLt54hkaf4tHJ6GXfa5jT7x3G/Udy+j83juPf47d3HznFcM3Ib97HtgvTrlzFcCNkzjoPjenBEz93aA9nwtHL6WJ7b0AN5xu9WPvEW//ch+w3/bbvNHB+O31cm/w8fu1k9W8Vx1zIObmGnPraK47azFoz7LTzLPnHcfsueO6K3t7bN5LFPHJxukziunDaObHOPyWOTOLiHHeK4fto4suUNJo8d4uBONo/j3h879/5Y+/BxTJ69J7+2Ix4+jhuueVtvPHnsHAdf9PDfyv73xp0zh28zl2x7s8/FI3T9M15gzzg4hTUHSRwkcZDEQRIHSRwkcZDEQRIHSRwkcZDEQRIHSRwkcZCW3Qk258ath7DkTiIzB0kcpGVx7HfH5f2sOlZmDpI4SOIgrYzDsuOIhUfJzEESB0kcpMVxWHbctvb4mDlI4iA9/O9zvPV+Ej7+3e+qx062fuaw7CjLj8z6OBhLHCRxkEbEccrJdeGq8P0TXfBffy4wIg5mEgdJHKQpcUw4xc4x5GhMiYOBxEESB2lQHOf+r+iLv/o68VLHkAXHy6g4mEYcJHGQxEGaFcectdgqo47ArDgYRRwkcZDGxfGJk+7yK2D1pD+7L6MWHC8D42AOcZDEQZoYx7RT7zUG7vXEOBhCHCRxkIbGcfwEPOQiRz31wR0ZuOB4GRsHE4iDJA7S3DhmnobvYeyevn778X31a0h7/HjSh8bGMXfmYDlxkEbHMXa+PdHkfRwdB2uJgyQO0vQ4Jp+Sv2743k2Pg4XEQRp9hZS1zBwkcZDEQRIHSRwkcZDEQRIHSRwkcZDEQRIHSRwkcZDEQRIHSRwkcZDEQRIHSRwkcZDEQRIHSRwkcZDEQRIHSRwkcZDEQRIHSRwkcZDEQRIHSRwkcZDEQRIHSRwkcZD+Abnzt0r1MOqwAAAAAElFTkSuQmCC">
+<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAADZklEQVR4nO3d0W3jRhRAUTtIH5u+Nm2kiU0bKSyl5CNAYMC5MtemOE+jc34NUSLnajiiCPn124/vL/B/fln9AphLHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgfp19UvYL2///ir/vTbn79f+UqmeX3an3260cR7z1nJM8bxU1m89WyJPFccn87iredJ5FniOCWLt54hkaf4tHJ6GXfa5jT7x3G/Udy+j83juPf47d3HznFcM3Ib97HtgvTrlzFcCNkzjoPjenBEz93aA9nwtHL6WJ7b0AN5xu9WPvEW//ch+w3/bbvNHB+O31cm/w8fu1k9W8Vx1zIObmGnPraK47azFoz7LTzLPnHcfsueO6K3t7bN5LFPHJxukziunDaObHOPyWOTOLiHHeK4fto4suUNJo8d4uBONo/j3h879/5Y+/BxTJ69J7+2Ix4+jhuueVtvPHnsHAdf9PDfyv73xp0zh28zl2x7s8/FI3T9M15gzzg4hTUHSRwkcZDEQRIHSRwkcZDEQRIHSRwkcZDEQRIHSRwkcZCW3Qk258ath7DkTiIzB0kcpGVx7HfH5f2sOlZmDpI4SOIgrYzDsuOIhUfJzEESB0kcpMVxWHbctvb4mDlI4iA9/O9zvPV+Ej7+3e+qx062fuaw7CjLj8z6OBhLHCRxkEbEccrJdeGq8P0TXfBffy4wIg5mEgdJHKQpcUw4xc4x5GhMiYOBxEESB2lQHOf+r+iLv/o68VLHkAXHy6g4mEYcJHGQxEGaFcectdgqo47ArDgYRRwkcZDGxfGJk+7yK2D1pD+7L6MWHC8D42AOcZDEQZoYx7RT7zUG7vXEOBhCHCRxkIbGcfwEPOQiRz31wR0ZuOB4GRsHE4iDJA7S3DhmnobvYeyevn778X31a0h7/HjSh8bGMXfmYDlxkEbHMXa+PdHkfRwdB2uJgyQO0vQ4Jp+Sv2743k2Pg4XEQRp9hZS1zBwkcZDEQRIHSRwkcZDEQRIHSRwkcZDEQRIHSRwkcZDEQRIHSRwkcZDEQRIHSRwkcZDEQRIHSRwkcZDEQRIHSRwkcZDEQRIHSRwkcZDEQRIHSRwkcZDEQRIHSRwkcZD+Abnzt0r1MOqwAAAAAElFTkSuQmCC">
+<link rel="manifest" href="data:application/manifest+json;base64,eyJuYW1lIjogIlNtYXJ0TGlzdCIsICJzaG9ydF9uYW1lIjogIlNtYXJ0TGlzdCIsICJkaXNwbGF5IjogInN0YW5kYWxvbmUiLCAic3RhcnRfdXJsIjogIi4iLCAiYmFja2dyb3VuZF9jb2xvciI6ICIjZjZmN2Y0IiwgInRoZW1lX2NvbG9yIjogIiMxZjhhNWIiLCAiaWNvbnMiOiBbeyJzcmMiOiAiZGF0YTppbWFnZS9wbmc7YmFzZTY0LGlWQk9SdzBLR2dvQUFBQU5TVWhFVWdBQUFMUUFBQUMwQ0FJQUFBQ3lyNUZsQUFBRFprbEVRVlI0bk8zZDBXM2pSaFJBVVR0SUg1dStObTJraVUwYktTeWw1Q05BWU1DNU10ZW1PRStqYzM0TlVTTG5hamlpQ1BuMTI0L3ZML0IvZmxuOUFwaExIQ1J4a01SQkVnZEpIQ1J4a01SQkVnZEpIQ1J4a01SQkVnZEpIQ1J4a01SQkVnZEpIQ1J4a01SQkVnZEpIQ1J4a01SQkVnZEpIQ1J4a01SQkVnZEpIQ1J4a01SQkVnZnAxOVV2WUwyLy8vaXIvdlRibjc5ZitVcW1lWDNhbjMyNjBjUjd6MW5KTThieFUxbTg5V3lKUEZjY244N2lyZWRKNUZuaU9DV0x0NTRoa2FmNHRISjZHWGZhNWpUN3gzRy9VZHkrajgzanVQZjQ3ZDNIem5GY00zSWI5N0h0Z3ZUcmx6RmNDTmt6am9QamVuQkV6OTNhQTlud3RITDZXSjdiMEFONXh1OVdQdkVXLy9jaCt3My9iYnZOSEIrTzMxY20vdzhmdTFrOVc4VngxeklPYm1HblByYUs0N2F6Rm96N0xUekxQbkhjZnN1ZU82SzN0N2JONUxGUEhKeHVreml1bkRhT2JIT1B5V09UT0xpSEhlSzRmdG80c3VVTkpvOGQ0dUJPTm8vajNoODc5LzVZKy9CeFRKNjlKNysySXg0K2podXVlVnR2UEhuc0hBZGY5UERmeXY3M3hwMHpoMjh6bDJ4N3M4L0ZJM1Q5TTE1Z3p6ZzRoVFVIU1J3a2NaREVRUklIU1J3a2NaREVRUklIU1J3a2NaREVRUklIU1J3a2NaQ1czUWsyNThhdGg3RGtUaUl6QjBrY3BHVng3SGZINWYyc09sWm1EcEk0U09JZ3JZekRzdU9JaFVmSnpFRVNCMGtjcE1WeFdIYmN0dmI0bURsSTRpQTkvTzl6dlBWK0VqNyszZStxeDA2MmZ1YXc3Q2pMajh6Nk9CaExIQ1J4a0ViRWNjckpkZUdxOFAwVFhmQmZmeTR3SWc1bUVnZEpIS1FwY1V3NHhjNHg1R2hNaVlPQnhFRVNCMmxRSE9mK3IraUx2L282OFZMSGtBWEh5Nmc0bUVZY0pIR1F4RUdhRmNlY3RkZ3FvNDdBckRnWVJSd2tjWkRHeGZHSmsrN3lLMkQxcEQrN0w2TVdIQzhENDJBT2NaREVRWm9ZeDdSVDd6VUc3dlhFT0JoQ0hDUnhrSWJHY2Z3RVBPUWlSejMxd1IwWnVPQjRHUnNIRTRpREpBN1MzRGhtbm9idllleWV2bjc3OFgzMWEwaDcvSGpTaDhiR01YZm1ZRGx4a0ViSE1YYStQZEhrZlJ3ZEIydUpneVFPMHZRNEpwK1N2Mjc0M2syUGc0WEVRUnA5aFpTMXpCd2tjWkRFUVJJSFNSd2tjWkRFUVJJSFNSd2tjWkRFUVJJSFNSd2tjWkRFUVJJSFNSd2tjWkRFUVJJSFNSd2tjWkRFUVJJSFNSd2tjWkRFUVJJSFNSd2tjWkRFUVJJSFNSd2tjWkRFUVJJSFNSd2tjWkRFUVJJSFNSd2tjWkQrQWJuenQwcjFNT3F3QUFBQUFFbEZUa1N1UW1DQyIsICJzaXplcyI6ICIxODB4MTgwIiwgInR5cGUiOiAiaW1hZ2UvcG5nIn1dfQ==">
+
+<style>
+:root{--bg:#f6f7f4;--card:#fff;--tx:#1c2420;--mu:#6b756f;--ac:#1f8a5b;--ac2:#e6f4ec;--bd:#e2e6e1;--best:#c98a00;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121614;--card:#1b211e;--tx:#eef2ef;--mu:#94a09a;--ac:#3fbf86;--ac2:#1d3328;--bd:#2a332e;--best:#e8b339}}
+:root[data-theme="dark"]{--bg:#121614;--card:#1b211e;--tx:#eef2ef;--mu:#94a09a;--ac:#3fbf86;--ac2:#1d3328;--bd:#2a332e;--best:#e8b339}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.4 system-ui,-apple-system,"Segoe UI",sans-serif}
+.w{max-width:560px;margin:0 auto;padding:16px}
+h1{font-size:22px;margin:4px 0 2px}
+.sub{color:var(--mu);font-size:14px;margin-bottom:14px}
+.tabs{display:flex;gap:6px;background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:4px;margin-bottom:14px}
+.tabs button{flex:1;border:0;background:none;color:var(--mu);padding:9px;border-radius:9px;font:inherit;font-weight:600}
+.tabs button.on{background:var(--ac);color:#fff}
+.row{display:flex;gap:8px}
+input{flex:1;min-width:0;padding:12px;border:1px solid var(--bd);border-radius:10px;background:var(--card);color:var(--tx);font:inherit}
+.btn{border:0;background:var(--ac);color:#fff;border-radius:10px;padding:0 16px;font:inherit;font-weight:600}
+.sug{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}
+.sug span{background:var(--ac2);color:var(--ac);padding:5px 10px;border-radius:99px;font-size:13px}
+.cat{margin-top:14px}
+.cat h3{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--mu);margin:0 0 6px}
+.it{display:flex;align-items:center;gap:10px;background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:10px 12px;margin-bottom:6px}
+.it input[type=checkbox]{flex:none;width:22px;height:22px;accent-color:var(--ac)}
+.it .n{flex:1}
+.it.d .n{text-decoration:line-through;color:var(--mu)}
+.x{border:0;background:none;color:var(--mu);font-size:20px;padding:0 4px}
+.tot{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center}
+.tot.best{border:2px solid var(--best)}
+.tot b{font-size:18px}
+.tag{font-size:12px;color:var(--best);font-weight:700}
+.pr{font-size:13px;color:var(--mu);white-space:nowrap}
+.pr .lo{color:var(--ac);font-weight:700}
+.empty{color:var(--mu);text-align:center;padding:30px 0}
+.note{font-size:12px;color:var(--mu);margin-top:14px}
+</style>
+</head>
+<body>
+<div class="w">
+<h1>🛒 SmartList</h1>
+<div class="sub">Einkaufsliste mit Preisvergleich</div>
+<div class="tabs">
+<button id="t0" class="on">Liste</button><button id="t1">Preise</button><button id="t2">Einkaufen</button>
+</div>
+<div id="v"></div>
+<div class="note">Demo mit Beispielpreisen für 3 Supermärkte. Echte Preisdaten folgen in der nächsten Version.</div>
+</div>
+<script>
+var DB={
+"milch":["Milchprodukte",[1.15,1.09,0.99]],"vollmilch":["Milchprodukte",[1.15,1.09,0.99]],"butter":["Milchprodukte",[2.39,2.19,1.99]],
+"käse":["Milchprodukte",[2.49,2.29,2.19]],"joghurt":["Milchprodukte",[0.49,0.45,0.39]],"eier":["Milchprodukte",[2.89,2.69,2.49]],
+"apfel":["Obst & Gemüse",[2.49,2.29,2.19]],"äpfel":["Obst & Gemüse",[2.49,2.29,2.19]],"banane":["Obst & Gemüse",[1.69,1.49,1.39]],"bananen":["Obst & Gemüse",[1.69,1.49,1.39]],
+"tomaten":["Obst & Gemüse",[2.99,2.79,2.49]],"gurke":["Obst & Gemüse",[0.89,0.79,0.69]],"kartoffeln":["Obst & Gemüse",[2.49,2.19,1.99]],"zwiebeln":["Obst & Gemüse",[1.49,1.29,1.19]],
+"brot":["Backwaren",[2.19,1.99,1.79]],"brötchen":["Backwaren",[0.39,0.35,0.29]],
+"nudeln":["Grundnahrung",[1.29,1.09,0.89]],"reis":["Grundnahrung",[2.19,1.99,1.79]],"mehl":["Grundnahrung",[1.19,0.99,0.89]],"zucker":["Grundnahrung",[1.39,1.19,1.09]],
+"wasser":["Getränke",[0.39,0.29,0.25]],"cola":["Getränke",[1.29,1.19,0.99]],"saft":["Getränke",[1.79,1.59,1.39]],"kaffee":["Getränke",[5.49,4.99,4.49]],
+"hähnchen":["Fleisch & Fisch",[6.99,6.49,5.99]],"hackfleisch":["Fleisch & Fisch",[4.99,4.69,4.29]],"lachs":["Fleisch & Fisch",[3.99,3.79,3.49]],
+"toilettenpapier":["Haushalt",[3.99,3.49,2.99]],"spülmittel":["Haushalt",[1.79,1.49,1.29]],"shampoo":["Drogerie",[2.49,1.99,1.79]],"zahnpasta":["Drogerie",[1.99,1.59,1.29]],
+"sahne":["Milchprodukte",[1.09,0.99,0.89]],"quark":["Milchprodukte",[0.99,0.89,0.79]],"mozzarella":["Milchprodukte",[0.99,0.89,0.79]],"skyr":["Milchprodukte",[1.49,1.39,1.19]],"margarine":["Milchprodukte",[1.29,1.09,0.99]],
+"birne":["Obst & Gemüse",[2.99,2.79,2.49]],"birnen":["Obst & Gemüse",[2.99,2.79,2.49]],"orangen":["Obst & Gemüse",[2.49,2.29,1.99]],"zitrone":["Obst & Gemüse",[0.49,0.39,0.35]],"trauben":["Obst & Gemüse",[3.49,3.19,2.89]],"erdbeeren":["Obst & Gemüse",[3.49,3.19,2.79]],
+"paprika":["Obst & Gemüse",[0.99,0.89,0.79]],"karotten":["Obst & Gemüse",[1.29,1.09,0.99]],"salat":["Obst & Gemüse",[1.19,0.99,0.89]],"brokkoli":["Obst & Gemüse",[1.79,1.59,1.39]],"champignons":["Obst & Gemüse",[1.99,1.79,1.59]],"knoblauch":["Obst & Gemüse",[0.79,0.69,0.59]],"avocado":["Obst & Gemüse",[1.29,1.19,0.99]],
+"toast":["Backwaren",[1.29,1.09,0.89]],"croissant":["Backwaren",[0.69,0.59,0.45]],"müsli":["Grundnahrung",[3.29,2.99,2.49]],"haferflocken":["Grundnahrung",[1.19,0.99,0.79]],"cornflakes":["Grundnahrung",[2.49,2.19,1.79]],
+"öl":["Grundnahrung",[2.99,2.49,2.19]],"salz":["Grundnahrung",[0.69,0.59,0.49]],"passierte tomaten":["Grundnahrung",[1.09,0.89,0.79]],"honig":["Grundnahrung",[3.99,3.49,2.99]],"marmelade":["Grundnahrung",[2.29,1.99,1.69]],"schokolade":["Süßes & Snacks",[1.29,0.99,0.79]],"chips":["Süßes & Snacks",[2.19,1.89,1.49]],"kekse":["Süßes & Snacks",[1.99,1.69,1.29]],"nüsse":["Süßes & Snacks",[2.99,2.59,2.29]],
+"bier":["Getränke",[0.89,0.79,0.69]],"wein":["Getränke",[4.99,4.49,3.99]],"tee":["Getränke",[2.29,1.99,1.49]],"orangensaft":["Getränke",[1.99,1.79,1.49]],
+"schinken":["Fleisch & Fisch",[2.49,2.29,1.99]],"salami":["Fleisch & Fisch",[1.99,1.79,1.49]],"würstchen":["Fleisch & Fisch",[2.99,2.69,2.29]],"thunfisch":["Fleisch & Fisch",[1.99,1.79,1.39]],"pizza":["Tiefkühl",[2.99,2.59,1.99]],"eis":["Tiefkühl",[3.49,2.99,2.49]],"pommes":["Tiefkühl",[2.29,1.99,1.69]],"tiefkühlgemüse":["Tiefkühl",[1.79,1.49,1.19]],
+"küchenrolle":["Haushalt",[2.49,2.19,1.79]],"müllbeutel":["Haushalt",[1.99,1.69,1.29]],"waschmittel":["Haushalt",[7.99,6.99,5.99]],"batterien":["Haushalt",[4.99,4.49,3.99]],"duschgel":["Drogerie",[1.99,1.69,1.29]],"seife":["Drogerie",[1.49,1.19,0.99]],"deo":["Drogerie",[2.49,2.19,1.79]]};
+var SM=["Supermarkt A","Supermarkt B","Discounter C"];
+var items=[],tab=0,v=document.getElementById("v");
+try{items=JSON.parse(localStorage.getItem("sl")||"[]")}catch(e){}
+function save(){try{localStorage.setItem("sl",JSON.stringify(items))}catch(e){}}
+function eur(n){return n.toFixed(2).replace(".",",")+" €"}
+function info(n){var k=n.toLowerCase().trim();if(DB[k])return DB[k];
+for(var w in DB){if(k.indexOf(w)>-1)return DB[w]}return["Sonstiges",null]}
+function add(t){t=t.trim();if(!t)return;var i=info(t);items.push({n:t,c:i[0],p:i[1],d:false});save();render()}
+function esc(s){return s.replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function grouped(){var g={};items.forEach(function(it,i){(g[it.c]=g[it.c]||[]).push([it,i])});return g}
+function render(){
+["t0","t1","t2"].forEach(function(id,i){document.getElementById(id).className=i==tab?"on":""});
+var h="";
+if(tab==0){
+h+='<div class="row"><input id="in" list="dl" placeholder="Artikel hinzufügen, z. B. Milch" autocomplete="off"><button class="btn" id="ad">+</button></div><datalist id="dl">';
+for(var k in DB)h+='<option value="'+k.charAt(0).toUpperCase()+k.slice(1)+'">';
+h+='</datalist><div class="sug">';
+["Milch","Brot","Eier","Bananen","Nudeln","Kaffee"].forEach(function(s){h+='<span data-s="'+s+'">+ '+s+'</span>'});
+h+='</div>';
+var g=grouped(),ks=Object.keys(g).sort();
+if(!ks.length)h+='<div class="empty">Deine Liste ist leer.</div>';
+ks.forEach(function(c){h+='<div class="cat"><h3>'+c+'</h3>';
+g[c].forEach(function(x){h+='<div class="it'+(x[0].d?' d':'')+'"><span class="n">'+esc(x[0].n)+'</span><button class="x" data-r="'+x[1]+'">×</button></div>'});h+='</div>'});
+}else if(tab==1){
+var tot=[0,0,0],cnt=0;
+items.forEach(function(it){if(it.p){cnt++;for(var i=0;i<3;i++)tot[i]+=it.p[i]}});
+if(!cnt)h+='<div class="empty">Füge Artikel hinzu, um Preise zu vergleichen.</div>';
+else{var m=Math.min.apply(null,tot);
+tot.map(function(t,i){return[t,i]}).sort(function(a,b){return a[0]-b[0]}).forEach(function(r){
+h+='<div class="tot'+(r[0]==m?' best':'')+'"><div>'+SM[r[1]]+(r[0]==m?'<div class="tag">★ Günstigster</div>':'')+'</div><b>'+eur(r[0])+'</b></div>'});
+h+='<div class="sub">Ersparnis zum teuersten: '+eur(Math.max.apply(null,tot)-m)+'</div><div class="cat"><h3>Pro Artikel</h3>';
+items.forEach(function(it){if(!it.p)return;var lo=Math.min.apply(null,it.p);
+h+='<div class="it"><span class="n">'+esc(it.n)+'</span><span class="pr">'+it.p.map(function(p){return p==lo?'<span class="lo">'+eur(p)+'</span>':eur(p)}).join(' · ')+'</span></div>'});
+h+='</div>';
+var un=items.filter(function(i){return!i.p}).length;if(un)h+='<div class="note">'+un+' Artikel ohne Preisdaten nicht eingerechnet.</div>'}
+}else{
+var g2=grouped(),k2=Object.keys(g2).sort();
+if(!k2.length)h+='<div class="empty">Keine Artikel zum Einkaufen.</div>';
+k2.forEach(function(c){h+='<div class="cat"><h3>'+c+'</h3>';
+g2[c].forEach(function(x){h+='<label class="it'+(x[0].d?' d':'')+'"><input type="checkbox" data-c="'+x[1]+'"'+(x[0].d?' checked':'')+'><span class="n">'+esc(x[0].n)+'</span></label>'});h+='</div>'});
+if(items.some(function(i){return i.d}))h+='<p><button class="btn" style="padding:10px 16px" id="cl">Erledigte entfernen</button></p>';
+}
+v.innerHTML=h;
+var inp=document.getElementById("in");
+if(inp){var go=function(){add(inp.value)};document.getElementById("ad").onclick=go;inp.onkeydown=function(e){if(e.key=="Enter")go()}}
+}
+v.addEventListener("click",function(e){var t=e.target;
+if(t.dataset.s)add(t.dataset.s);
+if(t.dataset.r){items.splice(+t.dataset.r,1);save();render()}
+if(t.id=="cl"){items=items.filter(function(i){return!i.d});save();render()}});
+v.addEventListener("change",function(e){var c=e.target.dataset.c;if(c!==undefined){items[+c].d=e.target.checked;save();render()}});
+["t0","t1","t2"].forEach(function(id,i){document.getElementById(id).onclick=function(){tab=i;render()}});
+render();
+</script>
+</body>
+</html>
